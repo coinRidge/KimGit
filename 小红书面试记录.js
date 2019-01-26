@@ -12,9 +12,18 @@
 // 4.性能优化
 // 5.简单的算法
 
-var a = 'this is outer'
+var a = 'outer'
 var func = function (a) {
-  this.a = a || 'this is inner'
+  this.a = a || 'inner'
   console.log(a)
-  this.b = b || 
+  this.b = b || 'oth'
+  console.log(b)
 }
+console.log(this.a)
+console.log(this.b)
+console.log(new func())
+console.log(this.a)
+console.log(this.b)
+console.log(func('fn'))
+console.log(this.a)
+console.log(this.b)

@@ -1,0 +1,13 @@
+1.clear: both的原理
+2.用户输入js攻击
+3.事件代理
+4.盒模型
+5.flex布局, 不用flex垂直居中
+6.promise报错
+跟传统的try/catch代码块不同的是，如果没有使用catch方法指定错误处理的回调函数，Promise 对象抛出的错误不会传递到外层代码，即不会有任何反应。
+7.判断数组: 
+[] instanceOf Array
+[].constructor == Array
+Object.prototype.toString.call([]) === '[object Array]'
+Array.isArray([])
+8.重绘
