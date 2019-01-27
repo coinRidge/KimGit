@@ -9,25 +9,24 @@
 <body>
   
 </body>
-<!-- 将处理函数的函数名(jsonp)发送给server
-server会将数据塞到jsonp的参数中
-形如: jsonp("this is data")
-script脚本加载完会直接执行 -->
-<script src="http://domain/api?param1=a&param2=b&callback=jsonp"></script>
+<!-- 由于同源策略, 为了向不同域的站点发送ajax请求, 但是script标签没有这个限制
+由于使用script标签, 所以是get请求, 返回的是js -->
+
+<script src="http://domain/api?param1=a&param2=b&jsonpCallback=jsonp"></script>
 <script>
   //定义处理函数
     function jsonp(data) {
     	console.log(data)
 	}
-</script>    
+</script>
+
+<!-- server返回的数据, 数据塞入处理函数的参数中 -->
+<script>
+`${jsonpCallback}(${data})`
+</script>
 
 <script>
-// 创建一个script标签
-// 三部分: 
-// 和server协商的代表函数名的key: jsonpCallback
-// 处理函数: success
-// server返回的字符串: 形如`${jsonpCallback}(${data})`, 加载完执行, 即相当于请求数据, 并使用success处理数据
-
+// 动态创建一个jsonp标签
 function jsonp(url, jsonpCallback, success) {
   let script = document.createElement('script')
   script.src = url
