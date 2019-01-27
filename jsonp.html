@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<!-- 将处理函数的函数名(jsonp)发送给server
+server会将数据塞到jsonp的参数中
+形如: jsonp("this is data")
+script脚本加载完会直接执行 -->
+<script src="http://domain/api?param1=a&param2=b&callback=jsonp"></script>
+<script>
+  //定义处理函数
+    function jsonp(data) {
+    	console.log(data)
+	}
+</script>    
+
+<script>
+// 创建一个script标签
+// 三部分: 
+// 和server协商的代表函数名的key: jsonpCallback
+// 处理函数: success
+// server返回的字符串: 形如`${jsonpCallback}(${data})`, 加载完执行, 即相当于请求数据, 并使用success处理数据
+
+function jsonp(url, jsonpCallback, success) {
+  let script = document.createElement('script')
+  script.src = url
+  script.async = true
+  script.type = 'text/javascript'
+  window[jsonpCallback] = function(data) {
+    success && success(data)
+  }
+  document.body.appendChild(script)
+}
+jsonp('http://xxx', 'callback', function(value) {
+  console.log(value)
+})
+</script>
+</html>
