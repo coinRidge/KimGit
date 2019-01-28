@@ -1,0 +1,54 @@
+1.css实现图片自适应宽高
+设置高度或者宽度为100%
+可以设置padding-bottom为百分比(父元素的百分比), 来撑开div
+
+2讲flex，手写出flex常用的属性, 并且讲出作用
+
+3.块格式化上下文（Block Formatting Context，BFC）
+
+是布局过程中生成块级盒子的区域，也是浮动元素与其他元素的交互限定区域, 比如说设置父元素为overflow: hidden可以清除浮动, 就是这个原理
+
+生成bfc的一些手段:
+浮动元素（元素的 float 不是 none）
+绝对定位元素（元素的 position 为 absolute 或 fixed）
+overflow 值不为 visible 的块元素
+
+4.项目里面的前端鉴权是怎么实现的？
+登录接口返回 token，headers 带 token 验证，没有 token，返回 401
+注意，注册和找回密码这种接口就不要带 token 了，要不然前端会问候你 10000 次的，真的。
+
+
+5. vue里面的虚拟dom是怎么回事？
+dom元素是很复杂的对象, 操作也很慢, 而使用更简单的JS对象保存了部分dom信息, 就是虚拟dom, 在大数据量的情况下很有优势
+更新的时候, 先比较虚拟dom, 再更新真实的dom
+
+6.vue双向绑定
+目前使用的是Object.defineProperty, 初始化的时候, observer会遍历data, 监听set, get, 是一种发布订阅的设计模式
+如果是新添加的属性, 就没有双向绑定, vue提供了vue.$set这个api,
+
+
+7.讲一讲手写函数防抖和函数节流
+
+8.讲讲常用的es6语法，比如let、promise、class等等
+
+9.浏览器渲染过程，回流重绘等
+dom, cssom, 生成render tree, reflow(布局和尺寸), repaint(部分属性, 比如背景色)
+
+减少reflow: 
+不要在循环中插入节点, 查询属性
+动画放在文档流外, CSS3的动画没有这个问题
+
+10.load、DOMContentLoaded等等事件的触发顺序
+当初始的 HTML 文档被完全加载和解析完成之后，DOMContentLoaded 事件被触发，而无需等待样式表、图像和子框架的完成加载。另一个不同的事件 load 应该仅用于检测一个完全加载的页面
+
+11.图片懒加载怎么实现的
+
+12.讲vue-lazyloader的原理，
+
+13.vue的响应式原理、依赖收集、监听数组、虚拟dom
+
+14 使用es5实现es6的class
+
+15 websocket握手过程
+
+16 浏览器的事件循环和nodejs事件循环的区别

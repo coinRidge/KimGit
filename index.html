@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="./quickSort.js"></script>
+    <style>
+.box{
+	height: 200px;
+}
+.img-box{
+	width: 100%;
+	position:relative;
+	z-index:1;
+}
+.img-box img{
+	position:absolute;
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;
+	width:100%;
+	margin:auto;
+	z-index: -1;
+	*zoom:1;
+}
+.img-box:before {
+	content: "";
+	display: inline-block;
+	padding-bottom: 100%;
+	width: 0.1px;	/*必须要有数值，否则无法把高度撑起来*/
+	vertical-align: middle;
+}
+    </style>
+</head>
+<body>
+    <!-- <div style='height: 1000px;position: relative;overflow:scroll;'>
+    </div>
+<div style='background-color: red;height: 10px;position: relative;overflow:scroll;'>
+    <div style="position: relative;top:1000px" id="a">123</div>
+</div> -->
+
+<div class="box">
+        <span>行内元素垂直居中</span>
+        <div class="img-box">
+            <img src="xin.jpg"/>
+            </div>
+    </div>
+</body>
+
+<script>
+</script>
+</html>

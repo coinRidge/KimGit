@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>图片居中</title>
+    <link rel="stylesheet" href="../../common/css/common.css">
+    <script src="../../common/js/common.js"></script>
+    <script src="../../common/js/vue.min.js"></script>
+    <style type="text/css">
+        #main {
+            font-size: 0;
+        }
+        .box {
+            display: inline-block;
+            vertical-align: top;
+            margin: 50px 0 0 20px;
+
+
+            width: 150px;    /* 容器必须设置宽高 */
+            height: 150px;
+
+            background-size: cover;  
+            background-position: center center;
+        }
+    </style>
+</head>
+<body>
+<div id="main">
+    <div class="box" v-for="(item, i) in srcs" :style="{‘background-image‘: ‘url(‘ + item + ‘)‘}"></div>
+</div>
+<script type="text/javascript">
+    var vm = new Vue({
+        data: {
+            srcs: [
+                "http://img.zcool.cn/community/[email protected]_1l_2o_100sh.jpg",
+                "http://img17.3lian.com/d/file/201703/07/4ceeb6fc3d7956ac7731290a603e0a84.jpg",
+                "https://up.enterdesk.com/edpic_source/f5/34/83/f53483429ccc69d00ae98dd5f05317a4.jpg",
+                "http://img.taopic.com/uploads/allimg/131125/240503-1311250IT642.jpg"
+            ]
+        }
+    }).$mount("#main");
+</script>
+</body>
+</html>
