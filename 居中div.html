@@ -43,6 +43,29 @@
 }
 
 </style>
+<script>
+var permute = function(nums) {
+    const fo = (matrix, add) => {
+        if(!matrix.length) return [[add]];
+        const result = [];
+        for (const arr of matrix) {
+            console.log(arr);
+            result.push(...(Array(arr.length + 1).fill()
+            .map((_, index) => [...arr.slice(0, index), add, ...arr.slice(index)])));
+        }
+        return result;
+    }
+
+    let mulArr = [];
+
+    for (const num of nums) {
+        mulArr = fo(mulArr, num);
+    }
+
+    return mulArr;
+};
+console.log(permute([1,2,3]))
+</script>
 <body>
   <div class="center1"></div>
   <div class="triangle"></div>

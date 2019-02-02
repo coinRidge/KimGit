@@ -1,0 +1,34 @@
+vue组件通信
+vuex flux
+vue里, [] pop push shift是怎么实现的
+method vs computed
+js 判断为数组
+call apply bind
+
+Array.prototype.map = function () {} (用reduce实现map)
+es6 promise
+all，race
+promsise -> all
+[api1, api2, ....]
+[r1, r2, r3,]
+async await
+function* vs funtion
+
+http
+etag
+setCookie
+301 vs 302
+nodejs
+跨域
+canvas 
+
+[1, 2, 4, 7 -8, 1]
+js
+[1, 2, 4]
+flutter pwa webassebly
+java
+typescript
+
+算法: 
+排序算法
+DFS, BFS, 并查集

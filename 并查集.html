@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var findCircleNum = function (M) {
+      var len = M.length
+      var pre = Array(len).fill().map((x, i) => i)
+
+      function find(i) {
+        while (pre[i] !== i) {
+          i = pre[i]
+        }
+        return i
+      }
+
+      function union(x, y) {
+        var rx = find(x)
+        var ry = find(y)
+        if (rx !== ry) {
+          pre[rx] = ry
+        }
+      }
+
+      for (let i = 0; i < len; i++) {
+        for (let j = 0; j < len; j++) {
+          if (i <= j) {
+            continue
+          }
+          if (M[i][j] === 1) {
+            union(i, j)
+          }
+        }
+      }
+
+      var result = new Set()
+      pre.forEach((x, i) => result.add(find(i)))
+
+      return result.size
+    };
+    findCircleNum([
+      [1, 1, 0],
+      [1, 1, 0],
+      [0, 0, 1]
+    ])
+  </script>
+</body>
+
+</html>
